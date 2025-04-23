@@ -1,0 +1,79 @@
+.carouselContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 500px; /* Default height for larger screens */
+    margin-bottom: 2rem; /* Space below carousel */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure slides take full height of the container */
+    position: relative; /* Needed for caption positioning */
+    text-align: center;
+    width: 100%; /* Ensure slides take full width of the container */
+}
+
+.slideVideo,
+.slideImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Ensure content fits within the container */
+    display: block; /* Remove extra space below image */
+    width: 100%; /* Ensure content scales to fit the container */
+}
+
+.caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slick-slide.slick-active .caption {
+    opacity: 1;
+}
+
+.caption h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--primary-color); /* Use theme color for caption title */
+}
+
+@media (max-width: 768px) {
+    .carouselContainer {
+        height: 600px; /* Reduce height for mobile screens */
+        padding: 0; /* Remove any padding that might cause overflow */
+    }
+
+    .slideImage {
+        max-height: 50vh;
+    }
+
+    .caption h2 {
+        font-size: 1.2rem;
+    }
+
+    .caption {
+        font-size: 0.9rem; /* Adjust caption size for smaller screens */
+        padding: 8px 16px;
+        bottom: 5%;
+    }
+
+    .responsiveCarousel {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+}
+
+:global(.slick-slider) {
+    margin-bottom: 0; /* Remove default bottom margin if needed */
+}

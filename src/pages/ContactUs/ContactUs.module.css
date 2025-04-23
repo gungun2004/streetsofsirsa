@@ -1,0 +1,159 @@
+.contactLayout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    gap: 20px; /* Add spacing between form and image */
+    padding: 20px; /* Add padding for better spacing */
+    max-width: 100%; /* Prevent horizontal overflow */
+    overflow-x: hidden; /* Hide any accidental horizontal overflow */
+    box-sizing: border-box; /* Include padding and border in width */
+    margin: 0 auto; /* Center the layout within the viewport */
+}
+  
+.subHeading {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    margin-top: 0; /* Remove default top margin */
+    font-size: 1.5rem;
+}
+  
+/* Form Styling */
+.contactFormContainer {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+    max-width: 500px; /* Limit the width for better responsiveness */
+    text-align: center; /* Center-align text inside containers */
+    box-sizing: border-box; /* Include padding and border in width */
+    width: 100%; /* Ensure containers take full width on smaller screens */
+}
+  
+.contactForm .formGroup {
+    margin-bottom: 1.2rem;
+}
+  
+.contactForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+  
+.contactForm input[type="text"],
+.contactForm input[type="email"],
+.contactForm textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--bg-color); /* Match background */
+    color: var(--text-color); /* Match text */
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.2s ease;
+}
+.contactForm input:focus,
+.contactForm textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+  
+.contactForm textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+  
+.submitButton {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+  
+.submitButton:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.submitButton {
+    width: 100%; /* Make the button full width */
+}
+  
+.statusMessage {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Or use a success/error color */
+}
+  
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    max-width: 500px; /* Limit the width for better responsiveness */
+    text-align: center; /* Center-align text inside containers */
+    box-sizing: border-box; /* Include padding and border in width */
+    width: 100%; /* Ensure containers take full width on smaller screens */
+}
+  
+.contactImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+  
+/* Desktop Layout */
+@media (min-width: 992px) {
+    .contactLayout {
+        grid-template-columns: 1fr 1fr; /* Two columns side-by-side */
+    }
+}
+
+/* Responsive styles for tablets and smaller screens */
+@media (max-width: 768px) {
+    .contactLayout {
+        flex-direction: column; /* Stack form and image vertically */
+        align-items: center; /* Center align items */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .contactFormContainer, .imageContainer {
+        width: 100%; /* Take full width */
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
+
+    .submitButton {
+        width: 100%; /* Make the button full width */
+    }
+}
+
+/* Responsive styles for very small screens (mobile) */
+@media (max-width: 480px) {
+    .contactFormContainer {
+        padding: 1rem; /* Reduce padding for smaller screens */
+    }
+
+    .contactImage {
+        max-width: 90%; /* Slightly reduce image size */
+    }
+}
+
+/* Ensure no horizontal scrolling on all screen sizes */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box; /* Include padding and border in width */
+}

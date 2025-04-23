@@ -1,0 +1,56 @@
+@keyframes upAndDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* Move further up */
+    }
+}
+
+.chatIcon {
+    position: fixed;
+    bottom: 10px; /* Fixed position 10px from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center */
+    background-color: #1c1c1c; /* Black background */
+    color: #FFD700; /* Golden color for the icon */
+    font-size: 2rem; /* Fixed font size */
+    width: 60px; /* Fixed width */
+    height: 60px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    z-index: 1000; /* Ensure it appears above other elements */
+    text-decoration: none;
+    border: 2px solid #FFD700; /* Golden border */
+    animation: upAndDown 2s infinite; /* Up-and-down animation */
+}
+
+.chatIcon:hover {
+    transform: translateX(-50%) scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #FFD700; /* Golden background on hover */
+    color: #1c1c1c; /* Black icon color on hover */
+    animation: none; /* Disable animation on hover */
+}
+
+@media (max-width: 768px) {
+    .chatIcon {
+        bottom: 8px; /* Adjust position for smaller screens */
+        font-size: 1.5rem; /* Reduce icon size */
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chatIcon {
+        bottom: 5px; /* Adjust position for very small screens */
+        font-size: 1.2rem; /* Further reduce icon size */
+        width: 40px;
+        height: 40px;
+    }
+}

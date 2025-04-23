@@ -1,0 +1,245 @@
+/* .homePage {}
+    /* Add specific styles for the home page container if needed */
+
+
+.founderSection {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--card-bg); /* Optional background */
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    margin-top: 20px;
+}
+
+.founderImage {
+    width: 200px; /* Increase the size of the logo */
+    height: 200px; /* Ensure the logo is square */
+    border-radius: 50%; /* Make the logo circular */
+    border: 5px solid var(--primary-color); /* Add a border with the primary color */
+    object-fit: cover; /* Ensure the image fits within the circle */
+    margin-bottom: 1rem; /* Add spacing below the logo */
+    flex: 1;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.founderText {
+    text-align: center; /* Center text on mobile */
+    flex: 2;
+    text-align: left;
+}
+
+.founderText h3 {
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.founderText h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.founderText p {
+    line-height: 1.6;
+    max-width: 600px; /* Limit text width */
+    margin: 0 auto 1rem auto; /* Center paragraph block */
+}
+
+.responsiveGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 20px;
+}
+
+.reviewCard {
+    background: var(--card-bg); /* Use theme variable for background */
+    color: var(--text-color); /* Use theme variable for text */
+    border: 1px solid var(--border-color); /* Use theme variable for border */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reviewText {
+    font-size: 1.2rem;
+    color: var(--text-color); /* Use theme variable for text */
+}
+
+.reviewStars {
+    color: var(--accent-color); /* Use theme variable for accent color */
+    margin: 8px 0;
+}
+
+.reviewerName {
+    font-style: italic;
+    color: var(--secondary-text-color); /* Use theme variable for secondary text */
+}
+
+.whyChooseUsSection {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.whyCard {
+    background: var(--card-bg); /* Use theme variable for background */
+    border: 1px solid var(--border-color); /* Use theme variable for border */
+    color: var(--text-color); /* Use theme variable for text */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.whyCard h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--accent-color); /* Use theme variable for accent color */
+}
+
+.whyCard p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--secondary-text-color); /* Use theme variable for secondary text */
+}
+
+.emoji {
+    font-size: 2rem;
+    margin-bottom: 0.5rem; /* Add spacing below emoji */
+}
+
+.blackBackground {
+    background-color: var(--card-bg); /* Match the founder section background */
+    color: var(--text-color); /* Use theme variable for text */
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color); /* Match the border style */
+}
+
+.containerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem; /* Add spacing between sections */
+}
+
+.carouselWrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2rem; /* Add margin to create a gap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Default height for smaller screens */
+}
+
+.responsiveCarousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    gap: 1rem; /* Add spacing between items */
+    width: 100%; /* Ensure the carousel fits within the viewport */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carouselWrapper img {
+    max-width: 100%; /* Ensure images scale within their container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the container */
+}
+
+@media (min-width: 768px) {
+    .founderSection {
+        flex-direction: row; /* Side-by-side on desktop */
+        text-align: left; /* Align text left on desktop */
+    }
+
+    .founderText p {
+        margin: 0 0 1rem 0; /* Align left on desktop */
+    }
+
+    .founderImage {
+        width: 200px; /* Larger image on desktop */
+        height: 200px;
+        flex-shrink: 0; /* Prevent image shrinking */
+    }
+
+    .containerSection {
+        flex-direction: row; /* Side-by-side layout on desktop */
+        text-align: left;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carouselWrapper {
+        height: 600px; /* Set height to 600px for laptop view */
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .reviewCard, .whyCard {
+        padding: 12px;
+    }
+
+    .whyChooseUsSection {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+
+    .responsiveGrid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+
+    .responsiveCarousel {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        padding: 10px;
+    }
+
+    .carouselWrapper {
+        margin-top: 1rem; /* Adjust margin for smaller screens */
+    }
+
+    .founderSection {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center;
+    }
+
+    .founderText {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .reviewCard, .whyCard {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .founderImage {
+        max-width: 200px; /* Reduce image size for smaller screens */
+    }
+}

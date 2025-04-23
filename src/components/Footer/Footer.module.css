@@ -1,0 +1,50 @@
+.footer {
+    background-color: #121212; /* Matte black background */
+    color: white; /* Set text color to white for contrast */
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.iconLink {
+    font-size: 1.5rem;
+    color: white; /* Icon color */
+    transition: transform 0.3s ease, color 0.3s ease;
+    visibility: visible; /* Ensure the icon is always visible */
+    opacity: 1; /* Ensure the icon is fully opaque */
+    display: inline-flex; /* Ensure the icon is displayed */
+}
+
+.iconLink:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+    color: #facc15; /* Gold color on hover */
+}
+
+@media (max-width: 768px) {
+    .iconLink {
+        font-size: 1.2rem; /* Reduce icon size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .iconLink {
+        font-size: 1rem; /* Further reduce icon size for very small screens */
+    }
+}
+
+.copyright {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}

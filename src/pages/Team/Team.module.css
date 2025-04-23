@@ -1,0 +1,176 @@
+.teamGrid {
+    display: grid;
+    /* Adjust columns for 3 members - looks good centered */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 900px; /* Limit width for better centering of 3 items */
+    margin: 0 auto; /* Center the grid */
+    gap: 2rem;
+}
+
+/* Keyframes for individual card animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animations to individual cards */
+.card:nth-child(1) {
+    animation: fadeInUp 1s ease-in-out;
+    animation-fill-mode: both; /* Ensure animation persists */
+}
+
+.card:nth-child(2) {
+    animation: fadeInLeft 1s ease-in-out;
+    animation-fill-mode: both; /* Ensure animation persists */
+}
+
+.card:nth-child(3) {
+    animation: fadeInRight 1s ease-in-out;
+    animation-fill-mode: both; /* Ensure animation persists */
+}
+
+/* Optional hover effect for cards */
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styles specific to team cards within the Card component */
+.memberTitle {
+    margin-top: -0.5rem; /* Pull title closer to the name */
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    font-size: 1rem;
+    opacity: 0.8;
+    color: var(--text-color); /* Ensure title color follows theme */
+}
+  
+.memberDescription {
+    font-size: 0.9rem; /* Use Card's default description style */
+    line-height: 1.5;
+    color: var(--text-color); /* Inherit color */
+    opacity: 0.9;
+}
+  
+/* Ensure cards stretch */
+.teamGrid > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teamGrid img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure consistent cropping */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    max-height: 300px; /* Limit the height for consistency */
+}
+
+.joinButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto; /* Center the button */
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.joinButton::after {
+    content: '→'; /* Add arrow */
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.joinButton:hover {
+    background-color: var(--primary-hover-color);
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.joinButton:hover::after {
+    transform: translateX(5px); /* Move arrow slightly to the right */
+}
+
+.joinForm {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+}
+
+.joinForm label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.joinForm input {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.joinForm button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.joinForm button:hover {
+    background-color: var(--primary-hover-color);
+}

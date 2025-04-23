@@ -1,0 +1,95 @@
+.scrollContainer {
+    width: 100%;
+    margin: 2rem 0; /* Add some vertical spacing */
+    /* Add padding if arrows go outside */
+    padding: 0 30px; /* Adjust if arrows overlap content */
+    box-sizing: border-box;
+  }
+  
+  /* Style the individual items within the slider */
+  .scrollItem {
+    padding: 10px; /* Creates spacing between cards */
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%; /* Ensure consistent height for alignment */
+  }
+  
+  /* Make sure the card inside takes full height */
+  .scrollItem > div { /* Target the Card component div */
+      height: 100%;
+  }
+  
+  
+  /* --- Optional Simple Item Styling (if not using Card) --- */
+  .simpleItem {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center content vertically */
+  }
+  
+  .collabLogo {
+      max-height: 80px; /* Control logo size */
+      max-width: 100%;
+      margin-bottom: 1rem;
+      object-fit: contain; /* Prevent distortion */
+  }
+  
+  .collabMedia {
+      width: 100%;
+      height: auto;
+      max-height: 200px; /* Limit the height for responsiveness */
+      object-fit: cover; /* Ensure the media fits well within the container */
+      border-radius: 8px; /* Optional: Add rounded corners */
+  }
+  
+  .collabName {
+      font-size: 1rem;
+      margin: 10px 0 5px;
+      color: var(--primary-color);
+  }
+  
+  .collabDesc {
+      font-size: 0.9rem;
+      color: #666;
+      opacity: 0.8;
+  }
+  
+  /* --- Slick Arrow Adjustments --- */
+  /* Move arrows slightly */
+  :global(.slick-prev) {
+      left: -25px !important; /* Adjust as needed */
+  }
+  :global(.slick-next) {
+      right: -25px !important; /* Adjust as needed */
+  }
+  
+  /* Increase arrow size if needed */
+  :global(.slick-prev:before),
+  :global(.slick-next:before) {
+      font-size: 25px !important;
+      opacity: 0.8;
+  }
+  :global(.slick-prev:hover:before),
+  :global(.slick-next:hover:before) {
+      opacity: 1;
+  }
+  
+  
+  @media (max-width: 500px) {
+       .scrollContainer {
+          padding: 0 15px; /* Less padding on small screens */
+       }
+       :global(.slick-prev) {
+           left: -15px !important;
+       }
+       :global(.slick-next) {
+           right: -15px !important;
+       }
+  }

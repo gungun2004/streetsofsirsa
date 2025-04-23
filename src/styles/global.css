@@ -1,0 +1,117 @@
+/* Import slick-carousel styles */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* --- Base Variables & Styles --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* --- Dark Theme (Default) --- */
+body.dark-theme {
+  --bg-color: #121212; /* Slightly off-black */
+  --text-color: #FFDB58; /* Mustard */
+  --primary-color: #FFDB58; /* Mustard */
+  --secondary-color: #FFFFFF; /* White */
+  --card-bg: #1e1e1e; /* Darker card background */
+  --border-color: #444;
+  --link-hover-color: #ffffff;
+  --button-bg: #FFDB58;
+  --button-text: #000000;
+  --button-hover-bg: #e0bb40;
+}
+
+/* --- Light Theme --- */
+body.light-theme {
+  --bg-color: #f4f4f4; /* Light Gray */
+  --text-color: #333333; /* Dark Gray */
+  --primary-color: #c7a00e; /* Darker Mustard for contrast */
+  --secondary-color: #000000; /* Black */
+  --card-bg: #ffffff; /* White card background */
+  --border-color: #ddd;
+  --link-hover-color: #000000;
+  --button-bg: #c7a00e;
+  --button-text: #ffffff;
+  --button-hover-bg: #a3830b;
+}
+
+/* --- Apply Variables --- */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* --- Helper Classes --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem; /* Add padding */
+}
+
+.section {
+ padding: 40px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+      padding: 1rem;
+  }
+  .section-title {
+      font-size: 1.5rem;
+  }
+}
+
+/* Slick Carousel Customizations (Optional) */
+.slick-dots li button:before {
+  color: var(--primary-color) !important; /* Change dot color */
+  opacity: 0.5;
+}
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: var(--primary-color) !important; /* Change arrow color */
+}

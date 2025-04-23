@@ -1,0 +1,186 @@
+.navbar {
+    background-color: var(--bg-color);
+    /* background-color: #0a0a23; Dark blue alternative if needed */
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; /* Consistent padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color); /* Logo text color */
+  }
+  
+  .logo {
+    height: 60px; /* Increase logo size */
+    width: 60px; /* Ensure the logo is square */
+    margin-right: 10px;
+    /* border: 3px solid var(--primary-color); Add a border with the primary color */
+    border-radius: 50%; /* Make the logo circular */
+    object-fit: cover; /* Ensure the image fits within the circle */
+  }
+  
+  .logoText {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Ensure text matches theme */
+  }
+  
+  
+  .navMenu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navItem {
+    margin-left: 1.5rem;
+    display: flex; /* Align icon and text */
+    align-items: center;
+  }
+  .navItem:first-child {
+      margin-left: 0;
+  }
+  
+  .navLink {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    display: flex; /* Align icon and text */
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+  }
+  
+  .navLink::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+  
+  .navLink:hover::after,
+  .navLink.activeLink::after {
+    width: 100%;
+  }
+  
+  .navLink.activeLink {
+    color: var(--primary-color); /* Highlight active link */
+    font-weight: bold;
+  }
+  
+  .navIcon {
+    /* margin-right: 5px; */ /* Replaced by gap */
+    font-size: 1rem; /* Adjust icon size */
+  }
+  
+  
+  /* Theme Switcher Styling */
+  .themeSwitcherItem {
+      display: none; /* Hide in the list on desktop */
+  }
+  
+  .desktopThemeSwitcher {
+      display: block; /* Show outside list on desktop */
+      margin-left: 1rem; /* Space from last nav item */
+  }
+  
+  /* Hamburger Menu Icon */
+  .menuIcon {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+  
+  
+  /* Responsive Mobile Styles */
+  @media (max-width: 992px) { /* Adjust breakpoint as needed */
+     .navContainer {
+       padding: 0 1rem;
+     }
+     .navMenu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 65px; /* Height of the navbar */
+      left: -100%; /* Start off-screen */
+      opacity: 0;
+      transition: all 0.4s ease;
+      background-color: var(--bg-color); /* Match navbar bg */
+      padding: 1rem 0;
+      border-top: 1px solid var(--primary-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .navMenu.active {
+      left: 0;
+      opacity: 1;
+      z-index: 1;
+    }
+  
+    .navItem {
+      margin: 0.8rem 0;
+      text-align: center;
+      width: 100%;
+    }
+  
+    .navLink {
+        padding: 0.8rem 1rem;
+        width: 80%; /* Center links */
+        margin: 0 auto;
+        justify-content: center; /* Center icon and text */
+    }
+    .navLink::after {
+        display: none; /* Remove underline effect on mobile */
+    }
+     .navLink.activeLink {
+       background-color: var(--primary-color);
+       color: var(--button-text);
+       border-radius: 5px;
+     }
+  
+    .menuIcon {
+      display: block; /* Show hamburger */
+    }
+  
+    .themeSwitcherItem {
+        display: flex; /* Show inside the list on mobile */
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .desktopThemeSwitcher {
+        display: none; /* Hide desktop switcher on mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+      .logoText {
+          font-size: 1.1rem;
+      }
+      .logo {
+          height: 50px; /* Adjust size for smaller screens */
+          width: 50px;
+      }
+  }

@@ -1,0 +1,365 @@
+.ourJourneyPage {
+    text-align: center;
+    background: var(--background-color); /* Use theme-based background color */
+    padding: 2rem;
+    border-radius: 8px;
+    color: var(--text-color); /* Use theme-based text color */
+}
+
+.introText {
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+    opacity: 0.9;
+    color:var(--primary-color);; /* Use the goldenish color variable */
+}
+
+.subSectionTitle {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+/* Social Media Section */
+.socialViews {
+    margin-bottom: 3rem;
+}
+
+.socialGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.socialCard {
+    background-color: var(--card-bg);
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--text-color); /* Ensure text color matches */
+}
+
+.socialCard:hover {
+    animation: hoverZoom 0.5s ease-in-out forwards;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    color: var(--primary-color);
+}
+
+.socialIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color); /* Icon color */
+    transition: color 0.3s ease;
+}
+
+.socialCard:hover .socialIcon {
+    animation: hoverRotate 0.5s ease-in-out forwards;
+    color: var(--link-hover-color); /* Change icon color on hover */
+}
+
+.socialCard h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.socialCard p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Collaborators Section */
+.collaboratorsSection {
+    margin-top: 3rem;
+}
+
+.collaboratorsIntro {
+    max-width: 600px;
+    margin: 0 auto 1rem auto;
+    opacity: 0.9;
+    color : var(--primary-color); /* Use the goldenish color variable */
+}
+
+.croppedImage {
+    object-fit: cover; /* Ensures the image is cropped */
+    width: 100%; /* Set the desired width */
+    height: 300px; /* Set the desired height for cropping */
+}
+
+/* Instagram Videos Section */
+.instagramVideos {
+    margin-top: 3rem;
+}
+
+.videoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.videoCard {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.videoPlayer {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Testimonial Section */
+.testimonialSection {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.testimonialGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.testimonialCard {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+}
+
+.carouselImage {
+    width: 100%; /* Ensure the image takes full width of the container */
+    height: 700px; /* Set height for laptop view */
+    object-fit: cover; /* Crop the image to fit the container */
+    object-position: center; /* Default: Center the image */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Specific adjustment for the third image */
+.carouselCard:nth-child(3) .carouselImage {
+    object-position: center bottom; /* Ensure the third image is aligned from the bottom */
+}
+
+/* Adjust carousel card layout for responsiveness */
+.carouselCard {
+    padding: 1rem;
+    text-align: center;
+}
+
+.carouselSection {
+    margin-bottom: 4rem; /* Increase spacing below the carousel section */
+}
+
+/* Media query for tablets and laptops */
+@media (max-width: 1024px) {
+    .carouselImage {
+        height: 500px; /* Adjust height for tablets */
+        object-position: center; /* Ensure proper positioning */
+    }
+
+    .carouselCard:nth-child(3) .carouselImage {
+        object-position: center bottom; /* Ensure the third image is aligned from the bottom in tablet view */
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .carouselSection {
+        height: 300px; /* Reduce height for mobile screens */
+        margin-bottom: 12rem; /* Further increase spacing below the carousel section */
+    }
+
+    .carouselCard {
+        height: 300px; /* Reduce height for mobile screens */
+        padding: 0.5rem;
+    }
+
+    .carouselImage {
+        height: 300px; /* Adjust height for mobile screens */
+        object-position: center; /* Ensure proper positioning */
+    }
+
+    .carouselCard:nth-child(3) .carouselImage {
+        object-position: center bottom; /* Ensure the third image is aligned from the bottom in mobile view */
+    }
+
+    .socialGrid {
+        grid-template-columns: 1fr; /* Stack social media cards vertically */
+        gap: 2.5rem; /* Increase gap between cards */
+    }
+
+    .socialCard {
+        padding: 1.5rem; /* Adjust padding for better spacing */
+    }
+
+    .collaboratorsSection {
+        margin-top: 4rem; /* Add more space above the collaborators section */
+    }
+}
+
+
+.callToAction {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.ctaButton {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: var(--button-hover-bg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-200deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+@keyframes hoverZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes hoverRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(10deg);
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.slideInLeft {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.slideInRight {
+    animation: slideInRight 1s ease-in-out;
+}
+
+.fadeInUp {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.zoomIn {
+    animation: zoomIn 1s ease-in-out;
+}
+
+.bounceIn {
+    animation: bounceIn 1s ease-in-out;
+}
+
+.slideInUp {
+    animation: slideInUp 1s ease-in-out;
+}
+
+.rotateIn {
+    animation: rotateIn 1s ease-in-out;
+}
