@@ -13,7 +13,7 @@ const ChatIcon = () => {
     >
       <FaWhatsapp />
     </a>
-  );
+  )
 };
 
 export default ChatIcon;

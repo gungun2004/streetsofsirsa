@@ -16,15 +16,14 @@
 }
 
 .founderImage {
-    width: 200px; /* Increase the size of the logo */
-    height: 200px; /* Ensure the logo is square */
-    border-radius: 50%; /* Make the logo circular */
+    width: 200px; /* Slightly increased width */
+    height: 200px; /* Match height to width for circular shape */
+    border-radius: 50%; /* Keep the logo circular */
     border: 5px solid var(--primary-color); /* Add a border with the primary color */
     object-fit: cover; /* Ensure the image fits within the circle */
     margin-bottom: 1rem; /* Add spacing below the logo */
     flex: 1;
-    max-width: 300px;
-    width: 100%;
+    max-width: 180px; /* Ensure max width matches height */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

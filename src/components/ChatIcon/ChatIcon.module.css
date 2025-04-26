@@ -30,7 +30,7 @@
 }
 
 .chatIcon:hover {
-    transform: translateX(-50%) scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1); /* Remove translateX to disable sliding left */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     background-color: #FFD700; /* Golden background on hover */
     color: #1c1c1c; /* Black icon color on hover */

@@ -19,17 +19,6 @@
     }
 }
 
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 @keyframes fadeInRight {
     from {
         opacity: 0;
@@ -44,11 +33,6 @@
 /* Apply animations to individual cards */
 .card:nth-child(1) {
     animation: fadeInUp 1s ease-in-out;
-    animation-fill-mode: both; /* Ensure animation persists */
-}
-
-.card:nth-child(2) {
-    animation: fadeInLeft 1s ease-in-out;
     animation-fill-mode: both; /* Ensure animation persists */
 }
 
@@ -104,12 +88,12 @@
     margin: 2rem auto; /* Center the button */
     padding: 0.8rem 1.5rem;
     background-color: var(--primary-color);
-    color: white;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: bolder;
     text-transform: uppercase;
     transition: background-color 0.3s ease, transform 0.3s ease;
     position: relative;
@@ -163,7 +147,8 @@
 .joinForm button {
     padding: 0.8rem 1.5rem;
     background-color: var(--primary-color);
-    color: white;
+    color: black;
+    font-weight: bold; /* Make the text bolder */
     border: none;
     border-radius: 5px;
     cursor: pointer;

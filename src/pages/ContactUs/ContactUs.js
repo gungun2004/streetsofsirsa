@@ -116,15 +116,7 @@ const ContactUs = () => {
                         {status && <p className={styles.statusMessage}>{status}</p>} {/* Display status message */}
                     </form>
                 </div>
-                {/* Image Section */}
-                <div className={`${styles.imageContainer} ${imageAnimation}`}>
-                    <img 
-                        src="/images/contact.jpg" // Ensure this path points to the 'public/images' folder
-                        alt="Contact Us" 
-                        className={styles.contactImage} 
-                        style={{ width: '100%', height: 'auto', minHeight: 515, display: 'block', border: '5px solid golden yellow', borderRadius: '8px' }} 
-                    />
-                </div>
+                
             </div>
         </div>
     );
