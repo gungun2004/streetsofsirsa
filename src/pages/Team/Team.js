@@ -52,7 +52,7 @@ const Team = () => {
     console.log('Submitting form data:', { name, email, role, message });
 
     try {
-      const response = await fetch('http://localhost:5000/join-team', {
+      const response = await fetch('https://streetsofsirsa.onrender.com/join-team', { // Updated to hosted backend URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,8 +61,8 @@ const Team = () => {
       });
 
       if (response.ok) {
-        const responseData = await response.json();
-        setThankYouMessage(responseData.message || 'Thank you for joining our team!');
+         const responseData = await response.json();
+        setThankYouMessage(response.message||'Thank you for joining our team!');
       } else {
         const responseText = await response.text();
         try {
@@ -72,7 +72,7 @@ const Team = () => {
           console.error('Error parsing response:', parseError);
           alert('Failed to submit application. Please try again later.');
         }
-      }
+       }
     } catch (error) {
       console.error('Error submitting the form:', error);
       alert('An error occurred. Please try again later.');

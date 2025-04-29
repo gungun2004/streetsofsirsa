@@ -30,17 +30,17 @@ app.use('/api/send-email', contactUsRoutes); // Use Contact Us routes
 app.post('/join-team', async (req, res) => {
   console.log('Incoming request body:', req.body); // Log the request body for debugging
 
-  const { name, age, email, role } = req.body;
+  const { name, email, role, message } = req.body; // Replace 'age' with 'message'
 
   // Validate fields
-  if (!name || !age || !email || !role) {
+  if (!name || !email || !role || !message) { // Replace 'age' with 'message'
     console.error('Validation failed: Missing fields'); // Log validation failure
-    console.error('Received data:', { name, age, email, role }); // Log received data for debugging
+    console.error('Received data:', { name, email, role, message }); // Log received data for debugging
     return res.status(400).json({ error: 'All fields are required.' }); // Ensure error response is JSON
   }
 
   try {
-    console.log('Form Data:', { name, age, email, role });
+    console.log('Form Data:', { name, email, role, message }); // Replace 'age' with 'message'
     res.status(200).json({ message: 'Application submitted successfully!' });
   } catch (error) {
     console.error('Error processing application:', error);
