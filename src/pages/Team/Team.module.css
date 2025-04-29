@@ -159,3 +159,10 @@
 .joinForm button:hover {
     background-color: var(--primary-hover-color);
 }
+
+.thankYouMessage {
+    margin-top: 1rem;
+    color:var(--primary-color);
+    font-weight: bolder;
+    text-align: center;
+}

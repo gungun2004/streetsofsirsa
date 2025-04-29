@@ -54,3 +54,11 @@
         height: 40px;
     }
 }
+
+@media (min-width: 1024px) {
+    .chatIcon {
+        left: auto; /* Remove centering */
+        right: 10px; /* Position 10px from the right */
+        transform: none; /* Remove centering adjustment */
+    }
+}

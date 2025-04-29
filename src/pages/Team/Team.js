@@ -25,9 +25,11 @@ const cardVariants = {
 
 const Team = () => {
   const [showForm, setShowForm] = useState(false);
+  const [thankYouMessage, setThankYouMessage] = useState(''); // State for thank-you message
 
   const handleFormToggle = () => {
     setShowForm(!showForm);
+    setThankYouMessage(''); // Reset thank-you message when toggling the form
   };
 
   const handleSubmit = async (e) => {
@@ -60,7 +62,7 @@ const Team = () => {
 
       if (response.ok) {
         const responseData = await response.json();
-        alert(responseData.message);
+        setThankYouMessage(responseData.message || 'Thank you for joining our team!');
       } else {
         const responseText = await response.text();
         try {
@@ -118,6 +120,7 @@ const Team = () => {
             <textarea name="message" rows="4" required></textarea>
           </label>
           <button type="submit">Submit</button>
+          {thankYouMessage && <p className={styles.thankYouMessage}>{thankYouMessage}</p>}
         </form>
       )}
     </div>
