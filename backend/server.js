@@ -5,7 +5,7 @@ const joinTeamRoutes = require('./routes/joinTeam'); // Import Join Team routes
 const contactUsRoutes = require('./routes/contactUs'); // Import Contact Us routes
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Enable CORS
 app.use(cors());
@@ -55,5 +55,5 @@ app.use((req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
