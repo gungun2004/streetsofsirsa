@@ -1,0 +1,17 @@
+.popup-container {
+  position: fixed;
+  top: 20px; /* Distance from top */
+  /* right: 10%; */
+  transform: translateX(-50%); /* Only horizontal centering */
+  background-color: #fff;
+  color: #222;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  max-width: 90%;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  animation: fadeInOut 3s ease-in-out;
+}
