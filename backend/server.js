@@ -1,37 +1,15 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const joinTeamRoutes = require('./routes/joinTeam'); // Import Join Team routes
-const contactUsRoutes = require('./routes/contactUs'); // Import Contact Us routes
+const joinTeam=require('./routes/joinTeam.js')
+const contactUs = require('./routes/contactUs.js'); // Import Contact Us routes
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable CORS
 app.use(cors());
-
-// Middleware
-app.use((req, res, next) => {
-  console.log('Request received:', {
-    method: req.method,
-    url: req.url,
-    headers: req.headers,
-  }); // Log request details
-  next();
-});
 app.use(express.json()); // Ensure JSON body parsing is enabled
-app.use(bodyParser.json({ limit: '5mb' })); // Increase body size limit to 5MB
-app.use(bodyParser.urlencoded({ limit: '5mb', extended: true })); // Handle URL-encoded data
-
-// Routes
-app.use('/join-team', joinTeamRoutes); // Use Join Team routes
-app.use('/api/send-email', contactUsRoutes); // Use Contact Us routes
-
 app.post('/join-team', async (req, res) => {
-  console.log('Incoming request body:', req.body); // Log the request body for debugging
-
   const { name, email, role, message } = req.body; // Replace 'age' with 'message'
-
   // Validate fields
   if (!name || !email || !role || !message) { // Replace 'age' with 'message'
     console.error('Validation failed: Missing fields'); // Log validation failure
@@ -40,7 +18,27 @@ app.post('/join-team', async (req, res) => {
   }
 
   try {
-    console.log('Form Data:', { name, email, role, message }); // Replace 'age' with 'message'
+   const result=await joinTeam.default({ name, email, role, message })
+    console.log('Form Data :', { name, email, role, message },'Result : ',result); // Replace 'age' with 'message'
+    res.status(200).json({ message: 'Application submitted successfully!' });
+  } catch (error) {
+    console.error('Error processing application:', error);
+    res.status(500).json({ error: 'Failed to process application. Please try again later.' });
+  }
+});
+
+app.post('/api/send-mail', async (req, res) => {
+  const { name, email, message } = req.body; // Replace 'age' with 'message'
+  // Validate fields
+  if (!name || !email || !message) { 
+    console.error('Validation failed: Missing fields'); // Log validation failure
+    console.error('Received data:', { name, email, message }); // Log received data for debugging
+    return res.status(400).json({ error: 'All fields are required.' }); // Ensure error response is JSON
+  }
+
+  try {
+   const result=await contactUs.default({ name, email, message })
+    console.log('Form Data :', { name, email, message },'Result : ',result); // Replace 'age' with 'message'
     res.status(200).json({ message: 'Application submitted successfully!' });
   } catch (error) {
     console.error('Error processing application:', error);
