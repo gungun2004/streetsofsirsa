@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ContactUs.module.css';
 import Popup from '../PopupMsg/Popup';
+const cors = require('cors');
 
 const ContactUs = () => {
      const [popupMsg, setPopupMsg] = useState(null);

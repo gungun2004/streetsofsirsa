@@ -26,6 +26,7 @@ return new Promise((resolve,reject)=>{
     const mailOptions = {
       from: email, // Use the email from the form submission
       to: 'veenuamardhingra16@gmail.com', // Replace with your Gmail address
+      to: 'veenuamardhingra16@gmail.com', // Replace with your Gmail address
       subject: 'New Contact Us Submission',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message || 'No message provided.'}`,
     };
