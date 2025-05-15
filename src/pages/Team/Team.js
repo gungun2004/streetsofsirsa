@@ -59,7 +59,7 @@ const Team = () => {
     }
 
     try {
-      const response = await fetch('https://streetsofsirsa.onrender.com/join-team', {
+      const response = await fetch('http://localhost:5000/join-team', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, role, message }),

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ContactUs.module.css';
 import Popup from '../PopupMsg/Popup';
+const cors = require('cors');
 
 const ContactUs = () => {
      const [popupMsg, setPopupMsg] = useState(null);
@@ -56,7 +57,7 @@ const ContactUs = () => {
         console.log('Submitting contact form data:', { name, email, message });
 
         try {
-            const response = await fetch('https://streetsofsirsa.onrender.com/api/send-email', {
+            const response = await fetch('http://localhost:5000/api/send-mail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

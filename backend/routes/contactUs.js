@@ -15,8 +15,8 @@ return new Promise((resolve,reject)=>{
     const transporter = nodemailer.createTransport({
       service: 'gmail', // Use your email service (e.g., Gmail, Outlook)
       auth: {
-        user: 'ishantahuja2309@gmail.com', // Replace with your email
-        pass: 'ybzeilkspyrzflht', // Replace with your app password
+        user: 'veenuamardhingra16@gmail.com', // Replace with your email
+        pass: 'dfuatxmkneeagaln', // Replace with your app password
       },
       debug: true, // Enable debugging
       logger: true, // Log information
@@ -25,7 +25,7 @@ return new Promise((resolve,reject)=>{
     // Email options
     const mailOptions = {
       from: email, // Use the email from the form submission
-      to: 'ishantahuja2309@gmail.com', // Replace with your Gmail address
+      to: 'veenuamardhingra16@gmail.com', // Replace with your Gmail address
       subject: 'New Contact Us Submission',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message || 'No message provided.'}`,
     };

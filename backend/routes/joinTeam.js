@@ -14,7 +14,7 @@ export default async function join({ name, email, role, message }){
       service: 'gmail',
       auth: {
         user: 'veenuamardhingra16@gmail.com',
-        pass: 'eyrvawtmbsywrnfc', // Gmail App Password
+        pass: 'dfuatxmkneeagaln', // Gmail App Password
       },
     });
   
