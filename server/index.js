@@ -10,7 +10,7 @@ app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON request bodies
 
 // Register the sendEmail router at /api/send-email
-app.use('/api/send-email', sendEmailRouter);
+app.use('/api/send-mail', sendEmailRouter);
 
 // Serve React build files in production
 if (process.env.NODE_ENV === 'production') {

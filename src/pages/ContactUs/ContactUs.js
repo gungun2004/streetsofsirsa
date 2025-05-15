@@ -56,7 +56,7 @@ const ContactUs = () => {
         console.log('Submitting contact form data:', { name, email, message });
 
         try {
-            const response = await fetch('https://streetsofsirsa.onrender.com/api/send-email', {
+            const response = await fetch('https://streetsofsirsa-75cp.onrender.com/api/send-mail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
