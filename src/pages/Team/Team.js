@@ -52,7 +52,7 @@ const Team = () => {
     console.log('Submitting form data:', { name, email, role, message });
 
     try {
-      const response = await fetch('http://localhost:5000/join-team', { // Updated to hosted backend URL
+      const response = await fetch('https://streetsofsirsa-4.onrender.com/join-team', { // Updated to hosted backend URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
