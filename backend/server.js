@@ -1,57 +1,40 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
-const joinTeam=require('./routes/joinTeam.js')
-const contactUs = require('./routes/contactUs.js'); // Import Contact Us routes
+
+const joinTeamRoutes = require('./routes/joinTeam');  // Your join team router
+const contactUsRoutes = require('./routes/contactUs'); // Your contact us router
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
+// Enable CORS for all routes
 app.use(cors());
-app.use(express.json()); // Ensure JSON body parsing is enabled
-app.post('/join-team', async (req, res) => {
-  const { name, email, role, message } = req.body; // Replace 'age' with 'message'
-  // Validate fields
-  if (!name || !email || !role || !message) { // Replace 'age' with 'message'
-    console.error('Validation failed: Missing fields'); // Log validation failure
-    console.error('Received data:', { name, email, role, message }); // Log received data for debugging
-    return res.status(400).json({ error: 'All fields are required.' }); // Ensure error response is JSON
-  }
 
-  try {
-   const result=await joinTeam.default({ name, email, role, message })
-    console.log('Form Data :', { name, email, role, message },'Result : ',result); // Replace 'age' with 'message'
-    res.status(200).json({ message: 'Application submitted successfully!' });
-  } catch (error) {
-    console.error('Error processing application:', error);
-    res.status(500).json({ error: 'Failed to process application. Please try again later.' });
-  }
+// Request logging middleware
+app.use((req, res, next) => {
+  console.log('Request received:', {
+    method: req.method,
+    url: req.url,
+    headers: req.headers,
+  });
+  next();
 });
 
-app.post('/api/send-mail', async (req, res) => {
-  const { name, email, message } = req.body; // Replace 'age' with 'message'
-  // Validate fields
-  if (!name || !email || !message) { 
-    console.error('Validation failed: Missing fields'); // Log validation failure
-    console.error('Received data:', { name, email, message }); // Log received data for debugging
-    return res.status(400).json({ error: 'All fields are required.' }); // Ensure error response is JSON
-  }
+// JSON body parsing and URL-encoded form data parsing with limits
+app.use(express.json({ limit: '5mb' }));
+app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 
-  try {
-   const result=await contactUs.default({ name, email, message })
-    console.log('Form Data :', { name, email, message },'Result : ',result); // Replace 'age' with 'message'
-    res.status(200).json({ message: 'Application submitted successfully!' });
-  } catch (error) {
-    console.error('Error processing application:', error);
-    res.status(500).json({ error: 'Failed to process application. Please try again later.' });
-  }
-});
+// Routes
+app.use('/join-team', joinTeamRoutes);       // Handles /join-team routes
+app.use('/api/send-mail', contactUsRoutes);  // Handles /api/send-mail routes
 
-// Handle 404 errors
+// 404 handler for unknown endpoints
 app.use((req, res) => {
   res.status(404).json({ message: 'Endpoint not found.' });
 });
 
-// Start the server
+// Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

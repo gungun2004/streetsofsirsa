@@ -1,21 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ContactUs.module.css';
-import Popup from '../PopupMsg/Popup';
-const cors = require('cors');
 
 const ContactUs = () => {
-     const [popupMsg, setPopupMsg] = useState(null);
-  const [pop, setPop] = useState(true);
-
-  useEffect(() => {
-    if (popupMsg) {
-      const timer = setTimeout(() => {
-        setPopupMsg(null);
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [popupMsg]);
-
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -57,22 +43,28 @@ const ContactUs = () => {
         console.log('Submitting contact form data:', { name, email, message });
 
         try {
-            const response = await fetch('https://streetsofsirsa.onrender.com/api/send-mail', {
+            const response = await fetch('http://localhost:5000/api/send-mail', { // Correct API endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email, message, sendThankYou: true }), 
+                body: JSON.stringify({ name, email, message, sendThankYou: true }), // Include sendThankYou flag
             });
 
             if (response.ok) {
                 // const responseData = await response.json();
                 setStatus(response.message||'Thank you for reaching out! We will get back to you soon.'); // Set Thank You note
             } else {
-                console.log("error in contactUs page catched in line 58");
+                // Handle non-JSON error responses
+                const responseText = await response.text();
+                try {
+                    const errorData = JSON.parse(responseText);
+                    setStatus(`Failed to send message: ${errorData.message || errorData.error}`); // Set error message
+                } catch (parseError) {
+                    console.error('Error parsing response:', parseError);
                     setStatus('Failed to send message. Please try again later.'); // Set generic error message
+                }
             }
-
         } catch (error) {
             console.error('Error submitting the form:', error);
             setStatus('An error occurred. Please try again later.'); // Set error message
@@ -80,8 +72,6 @@ const ContactUs = () => {
     };
 
     return (
-        <>
-              {popupMsg && <Popup msg={popupMsg.message} pop={pop} />}
         <div className="container section">
             <h1 className="section-title">Get In Touch</h1>
             <div className={styles.contactLayout}>
@@ -129,7 +119,6 @@ const ContactUs = () => {
                 
             </div>
         </div>
-        </>
     );
 };
 
